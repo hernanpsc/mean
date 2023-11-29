@@ -5,11 +5,13 @@ COPY package*.json ./
 RUN npm install npm@latest -g
 RUN npm ci
 COPY . .
-RUN npm run build #dist
+RUN npm run build
 
 ### Stage 2
-FROM nginx:1.13.12-alpine
+FROM nginx:1.25.3-alpine-slim
+
+
 # Copy the Angular app's build artifacts from the specified output path
 
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
-COPY  nginx.config /etc/nginx/config.d/defauld.conf
+COPY --from=node /usr/src/app/dist/angular-compare /usr/share/nginx/html
+COPY  config/default.conf /etc/nginx/config.d/default.conf

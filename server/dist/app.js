@@ -11,6 +11,8 @@ const mongo_1 = __importDefault(require("./config/mongo"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const PORT = process.env.PORT || 3001;
 const whitelist = [
+    'http://localhost:80',
+    'http://localhost:8080',
     'http://localhost:4200',
     'http://localhost:4300',
     'http://localhost:4400',

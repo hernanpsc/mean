@@ -11,6 +11,8 @@ import bodyParser from 'body-parser';
 const PORT = process.env.PORT || 3001;
 
 const whitelist = [
+    'http://localhost:80',
+    'http://localhost:8080',
     'http://localhost:4200',
     'http://localhost:4300',
     'http://localhost:4400',
