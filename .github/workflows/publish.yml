@@ -1,28 +1,30 @@
 name: publish
 
-on: push
-   branches: ["main"]
-   pull_request:
-   branches: ["main"]
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
   create-docker-image:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout the code
-      uses: actions/checkout@v2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
 
-    - name: Login ti Github Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        userneme: ${{ github.actor }}
-        password: ${{ secrets.TOKEN_DEPLOY }}
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.TOKEN_DEPLOY }}
 
-    - name: Build image
-      run: |
-        docker-compose up . --tag ghcr.io/hernanpsc/mean:latest
-        docker push . --tag ghcr.io/hernanpsc/mean:latest
+      - name: Build and push image
+         run: |
+          docker-compose up . --tag ghcr.io/hernanpsc/mean:latest
+          docker push . --tag ghcr.io/hernanpsc/mean:latest
+
 
   # deploy:
   #   needs: create-docker-image
