@@ -6,7 +6,7 @@ services:
     # container_name: front-prepagas
     build: front-prepagas
     ports:
-      - "8181:80"
+      - "8080:80"
   express:
     build: server
     ports: 
