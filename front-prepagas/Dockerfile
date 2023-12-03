@@ -14,4 +14,4 @@ FROM nginx:1.25.3-alpine-slim
 # Copy the Angular app's build artifacts from the specified output path
 
 COPY --from=node /usr/src/app/dist/angular-compare /usr/share/nginx/html
-COPY  config/default.conf /etc/nginx/config.d/default.conf
+COPY  config/default.conf /etc/nginx/conf.d/default.conf
