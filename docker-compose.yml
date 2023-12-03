@@ -20,20 +20,28 @@ version: '3.8'
 
 
 services:
-  #new app (angular_app)
-  angular_app:
-    container_name: angular_app
-    image: pee-angular_app
-    build: ./front-prepagas
-    ports:
-      - 4200:4200
+  database:
+    image: "mongo"
   express_app:
-    container_name: express_app
-    image: pee-express_app
     build: ./server
     ports:
-      - 3000:3000
-  database:
-    image: mongo
+      - "5000:5000"
+    expose:
+      - "5000"
+    links:
+      - database
+  angular_app:
+    build: ./front-prepagas
     ports:
-      - 27017:27017
+      - 4300:80
+  nginx:
+    build: ./nginx
+    restart: always
+    ports:
+      - 80:80
+    links:
+      - express_app
+      - angular_app 
+  
+  
+    
