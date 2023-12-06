@@ -33,6 +33,9 @@ export class RankingSectionComponent implements OnInit {
 	constructor() {
 		// Initialize the filtered array with all products
 		this.filteredProducts = [...this.ranking];
+		(<any>this.selectionChange)._maxListeners = 15; 
+		// Puedes ajustar este número según sea necesario.
+
 	}
 	trackByOptions = (_: number, item: any): any => item.id;
 

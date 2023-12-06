@@ -94,7 +94,6 @@ const publicApi = [
 		ReactiveFormsModule,
 		// PdfViewerModule,
 		// NgxSkeletonLoaderModule,
-		ReactiveFormsModule,
 		ScrollingModule,
 		NgSelectModule ,
 		ModalModule,

@@ -12,9 +12,12 @@ export class IncrementorComponent {
 
   private intervalId: any;
   private timeoutId: any;
+
+  constructor() {
+		(<any>this.valorTitularCambiado)._maxListeners = 15; // Puedes ajustar este número según sea necesario.
+
+	}
   @HostListener('mousedown', ['$event'])
-
-
 
   onMouseDown(event: Event) {
     if (event.target instanceof HTMLElement) {

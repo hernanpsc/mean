@@ -623,7 +623,7 @@ closeButon() {
     });
   
       let formularioData = this.dataFormularios.getFormularioData();
-      console.log('formData   results 608:', formularioData)
+      console.log('formData   results 626:', formularioData)
       console.log('formularioData', formularioData)
       console.log('formularioData   :', formularioData.storedData)
 
@@ -647,17 +647,16 @@ closeButon() {
 
    
     
-      caches.open('formData').then(cache => {
-        cache.match('formData').then(response => {
-          if (!formData) {
-            // 'this.products' se encuentra en la caché, puedes obtener los datos
-             response.json().then(products => {
-             console.log('formData GET en cache', formData);
-             this.formData = formData
-           });
-          } 
+      // caches.open('formData').then(cache => {
+      //   cache.match('formData').then(response => {
+      //     if (!formData) {
+      //        response.json().then(products => {
+      //        console.log('formData GET en cache', formData);
+      //        this.formData = formData
+      //      });
+      //     } 
       
-          console.log('this.formData 643', formData);
+       
 
   
         this.cotizacionService.getPrecios(formData).subscribe(
@@ -674,17 +673,7 @@ closeButon() {
             this.products = response;
               this.productosFiltrados = this.products
          // Abre la caché (puedes darle un nombre específico)
-caches.open('products').then(cache => {
-  // Almacena 'this.products' en la caché
-  const productosResponse = new Response(JSON.stringify(this.productosFiltrados));
-  cache.put('productos', productosResponse); 
-  const formDataResponse = new Response(JSON.stringify(formData));
-  cache.put('formData', formDataResponse); 
 
-  console.log('productos PUT en cache', productosResponse )
-  console.log('formData PUT en cache', formDataResponse )
-
-});
       
                      },
                 (error) => {
@@ -695,8 +684,8 @@ caches.open('products').then(cache => {
           this.isLoaded = true;
         }, 4000);
 
-      });
-    });      
+    //   });
+    // });      
 
     if ( !this.productosFiltrados){
       this.productosFiltrados = this.products

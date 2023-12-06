@@ -10,7 +10,7 @@ import { CREDITS_DATA_ITEMS, INSURANCE_DATA_ITEMS, OPTIONS_DATA_ITEMS } from './
 
 @Component({
 	selector: 'app-home',
-	templateUrl: './home.component-1.html',
+	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {

@@ -35,7 +35,7 @@
     "@angular/*": ["node_modules/@angular/*"],
     "@core/*": ["src/app/core/*"],
     "@shared/*":["src/app/shared/*"],
-    "@components/*":["src/app/shared/*"],
+    "@components/*": ["src/app/shared/components/*"],
     "@env/*":["src/environments/*"],
     "@modules/*":["src/app/modules/*"],
     "@data/*":["src/app/data/*"],

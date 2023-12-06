@@ -57,7 +57,9 @@ export class FiltersProductsComponent implements OnInit  {
     private formBuilder: FormBuilder,
     private filterManagerService: ProductsService,
     private cdr: ChangeDetectorRef,
-    private retornarService: ServcioRetornoPrecioService,
+    private retornarService: ServcioRetornoPrecioService
+    
+
    
   ){  
     
@@ -82,10 +84,7 @@ export class FiltersProductsComponent implements OnInit  {
   }
 
 
-  private buildForm(){
-
-   
-  }
+ 
   
   ngOnInit(): void {
     this.quote = {

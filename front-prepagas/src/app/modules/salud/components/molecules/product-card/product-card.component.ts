@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,  ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
+import { Component, Input, OnInit,  ChangeDetectionStrategy, Output } from '@angular/core';
 import { ModalService } from '../../../../../_modal';
 import { productsDB } from '../../../../../data/constants/mock/products';
 import { MasDetallesComponent } from '../../templates/mas-detalles/mas-detalles.component';
@@ -49,6 +49,7 @@ export class ProductCardComponent implements OnInit{
 
   constructor(
     public dialog: MatDialog,
+    
     ) { 
 
   }
