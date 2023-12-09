@@ -19,15 +19,23 @@ services:
     build: ./front-prepagas
     container_name: angular_app
     ports:
-      - 4200:80
-  
+      - "4200:80"
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    expose:
+      - "80"
+    links:
+      - express_app
+      - angular_app
+    environment:
+      - VIRTUAL_HOST=plandesalud.duckdns.org
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    restart: always
+    ports: 
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
 
-  # nginx:
-  #   build: ./nginx
-  #   container_name: nginx
-  #   restart: always
-  #   ports:
-  #     - "80:80"
-  #   links:
-  #     - express_app
-  #     - angular_app
