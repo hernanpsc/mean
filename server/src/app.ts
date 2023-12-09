@@ -4,11 +4,8 @@ import express from "express";
 import cors from "cors";
 import { router } from "./routes"
 import dbConnect from "./config/mongo";
-
-
 import bodyParser from 'body-parser';
-
-const PORT = process.env.PORT || 3001;
+const csp = require('express-csp-header');const PORT = process.env.PORT || 3001;
 
 const whitelist = [
     'http://localhost:80',
@@ -24,21 +21,32 @@ const whitelist = [
   const portRegex = /^http:\/\/localhost(?::\d+)?$/;
   
   const filteredWhitelist = whitelist.filter((origin) => portRegex.test(origin));
-  
- 
+
 
 const app = express()
+
+
+// CORS middleware
 app.use(cors({
-      origin: '*',
+  origin: '*',
+  allowedHeaders: ['Authorization', 'Content-Type']
+}));
 
-    // origin: filteredWhitelist,
-    allowedHeaders: ['Authorization', 'Content-Type']
+// Body parser middleware
+app.use(express.json());
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-  }));
-app.use(express.json())
+app.use(csp({
+  policies: {
+      'default-src': [csp.NONE],
+      'img-src': [csp.SELF],
+  }
+}));
+
+
+// Your existing router middleware
 app.use(router);
-app.use(bodyParser.json({ limit: '50mb' })); // Puedes ajustar el límite según tus necesidades
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 dbConnect().then(() => {
     app.listen(PORT, () => {

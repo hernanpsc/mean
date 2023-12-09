@@ -1,0 +1,46 @@
+/* In your component's CSS file or a global stylesheet */
+.custom-ms .p-multiselect-label {
+    /* Custom styles for the label */
+    color: #333;
+    font-size: 16px;
+}
+
+.custom-ms .p-multiselect-trigger {
+    /* Custom styles for the trigger button */
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+}
+
+.custom-ms .selected-chips {
+    /* Custom styles for the selected items container */
+    margin-top: 10px;
+}
+
+.custom-ms .p-chip {
+    /* Custom styles for each selected item chip */
+    background-color: #640ef0;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.custom-ms .p-chip i {
+    /* Custom styles for the close icon in the chip */
+    cursor: pointer;
+}
+
+.custom-ms .no-selected-items {
+    /* Custom styles for the message when no items are selected */
+    color: #888;
+    margin-top: 5px;
+}
+
+.custom-ms .item {
+    /* Custom styles for each item in the list */
+    padding: 5px;
+    cursor: pointer;
+}
+
+.custom-ms .item:hover {
+    /* Custom styles for the item on hover */
+    background-color: #f0f0f0;
+}

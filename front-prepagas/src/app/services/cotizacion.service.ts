@@ -35,11 +35,17 @@ export class CotizacionService {
   }
 
   
-  getClinicas(){
+  getClinicas() {
     const url = `${this.url}/clinicas`;
+
+    // Subscribe to the observable to get the data
     this.clinicas = this.http.get(url);
+   
+
+    // Return the observable
     return this.clinicas;
-  }
+}
+
 
   getEmpresas(){
     const url = `${this.url}/empresas`;

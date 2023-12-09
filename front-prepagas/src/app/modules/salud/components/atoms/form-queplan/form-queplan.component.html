@@ -119,45 +119,14 @@
 
 	
 
-</div>
-</div>
 
 
 
 	  
-	  <div class="ocultar " [class.hidden]="formCotizar.get('group').value !== null" >
-	<div class="row edades" *ngIf="formCotizar.get('group').value !== ''">
-		<p class="edad-solo" *ngIf="formCotizar.get('group').value === 1"><strong>Edad</strong></p><p class="edad-varios" *ngIf="formCotizar.get('group').value === 4 || formCotizar.get('group').value === 3"><strong>Edades del titular y su pareja</strong></p><p class="edad-varios" *ngIf="formCotizar.get('group').value === 2"><strong>Edades del titular y las del/los hijo/s separadas por espacios</strong></p>
- 
-		<div class="col-6 edad_1">
-		
-<span><input class="campo-edad " type="text" name="edad_1" placeholder="Su edad" [(ngModel)]="edad_1" (input)="onInputChange($event, 'edad_1')"></span>
-</div>
-<div class="col-6 edad_2" *ngIf="formCotizar.get('group').value === 3 || formCotizar.get('group').value === 4">
-	<span><input class="campo-edad-pareja" type="text" placeholder="Edad pareja" [(ngModel)]="edad_2" ></span>
-</div>
-<div class="col-6 hijos_num" *ngIf="formCotizar.get('group').value === 2">
+	  <div  >
+	
 
-
-
-	<span><input class="campo-edades-hijos" type="text" placeholder="Edades de los hijos" [(ngModel)]="edades_Hijos" (input)="onInputChange($event, 'edades_Hijos')"></span>
-
-</div>
-</div>
-<div class="row" *ngIf="formCotizar.get('group').value === 4">
-<div class="hijos_num">
-<p><strong>Edades del/los hijo/s separadas por espacios</strong></p>
-<div class="col-4">
-	<span><input class="campo-edades-hijos" type="text" placeholder="Edades de los hijos" [(ngModel)]="edadesHijos" (input)="onInputChange($event, 'edadesHijos')"></span>
-</div>	</div>
-</div>
-
-</div>
-	<div class="possui-plano" id="tiene-os" *ngIf="showTipo==true">
-		<p><strong>Consulta por cambio de Obra Social como empleado en relacion de dependencia?<span class="recebe-img" *ngIf="formCotizar.get('tipo').value !== ''"></span></strong></p>
-		<b class="btn" [class.active]="formCotizar.get('tipo').value === 'D'" (click)="selectAportesType('D')">Si</b>
-		<b class="btn" [class.active]="formCotizar.get('tipo').value === 'P'" (click)="selectAportesType('P')">No</b>
-	</div>
+	
 <!-- 
 
 	<div class="possui-cnpj">
@@ -197,7 +166,9 @@
 						  
 						
 						  
-						
+		
+</div>
+</div>				
 						
 					   
 				

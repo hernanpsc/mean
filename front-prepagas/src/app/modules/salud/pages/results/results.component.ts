@@ -43,14 +43,13 @@ interface ResponseData {
   styleUrls: ['./results.component.scss'],
   
  
-  changeDetection: ChangeDetectionStrategy.Default,
+changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ResultsComponent implements OnInit {
   @ViewChild('scroller') scroller!: CdkVirtualScrollViewport;
   itemsPerPage = 10; // Número de elementos por página
   totalProducts = 100; // Número total de productos en tu lista (ajusta esto según tus datos reales)
   currentPage = 1; // Página actual, inicializada en 1
-
   displayedColumns: string[] = ['feature', 'item_1_value_name', 'item_2_value_name'];
   public productList : any ;
   public filterCategory : any;
@@ -63,7 +62,6 @@ export class ResultsComponent implements OnInit {
   title = 'product-app';
   public secureProducts: any = (planes as any).default; 
   public productosFiltrados:any[];
-
   public products: any = (planes as any).default;
   public qPlanes: number = this.products.length;
   hidden = false;
@@ -80,7 +78,7 @@ export class ResultsComponent implements OnInit {
   layout: string = 'list';
   visibleTopSidebar: boolean = false;
   SortbyParam: string = 'empresa'; // Valor por defecto
-selectedRating : FormControl = new FormControl('');
+  selectedRating : FormControl = new FormControl('');
   isLoaded: boolean;
   advanceSearchExpanded: boolean = false;
   planes: any;
@@ -591,26 +589,34 @@ closeButon() {
   // }
   async ngOnInit(): Promise<void> {
     this.isLoaded = false; 
+   
+  
     
-    forkJoin([
-      this.cotizacionService.getClinicas(),
-      this.cotizacionService.getPlanes(),
-      this.cotizacionService.getEmpresas()
-    ]).subscribe({
-      next: ([result]: [any]) => {
-        const [clinicas, planes, empresas] = result;
-        this.clinicas = clinicas;
-        this.dropdownClinica = this.clinicas;
-        this.selectedClinica = [];
-        this.secureProducts = planes;
-        this.planes = planes;
-        this.empresas = empresas;
-      },
-      error: (error: any) => {
-        // Manejar errores aquí si es necesario
-        console.error(error);
-      }
-    });
+    
+   forkJoin([
+  this.cotizacionService.getClinicas(),
+  this.cotizacionService.getPlanes(),
+  this.cotizacionService.getEmpresas()
+]).subscribe({
+  next: (results: any[]) => {
+    const [clinicas, planes, empresas] = results;
+
+    // Log the results for verification
+    console.log('ForkJoin Result:', clinicas, planes, empresas);
+
+    this.clinicas = clinicas;
+    this.dropdownClinica = this.clinicas;
+    this.selectedClinica = [];
+    this.secureProducts = planes;
+    this.planes = planes;
+    this.empresas = empresas;
+  },
+  error: (error: any) => {
+    // Handle errors here
+    console.error('ForkJoin Error:', error);
+  }
+});
+
     
     
     
