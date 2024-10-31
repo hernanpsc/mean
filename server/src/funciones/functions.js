@@ -4,14 +4,14 @@
   	
 	export function combinePlansWithPrices(planes, precios) {
 		const combinedArray = [];
-			  // console.log(planes)
+			  console.log(planes)
 	
 		planes.forEach((plan) => {
-			// console.log(plan)
+			console.log(plan)
 	
 		  const matchingPrecio = precios.find((precio) => precio.item_id === plan.item_id);
-		//   console.log(plan.item_id);
-		//   console.log(precios.item_id);
+		console.log(plan.item_id);
+		console.log(precios.item_id);
 	
 	
 		  if (matchingPrecio) {
@@ -20,7 +20,7 @@
 			  ...plan._doc,
 			  ...matchingPrecio,
 			};
-			// console.log(combinedPlan)
+			console.log(combinedPlan)
 	
 			// Agrega el objeto combinado al array resultado
 			combinedArray.push(combinedPlan);

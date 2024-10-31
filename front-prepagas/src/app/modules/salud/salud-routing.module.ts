@@ -9,8 +9,8 @@ import { EmpresasComponent } from './pages/empresas/empresas.component';
 
 
 const routes: Routes = [
-	{ path: ``, component: DefaultComponent },
-	{ path: INTERNAL_PATHS.ASESORI_SALUD_RESULTS, component: ResultsComponent },
+	{ path: ``, component: ResultsComponent },
+	{ path: INTERNAL_PATHS.ASESORI_SALUD_DEFAULT, component: DefaultComponent },
 	{ path: INTERNAL_PATHS.ASESORI_SALUD_DETAILS, component: DetailsComponent },
 	{ path: INTERNAL_PATHS.ASESORI_SALUD_COMPARE, component: CompareComponent },
 	{ path: INTERNAL_PATHS.ASESORI_SALUD_EMPRESA, component: EmpresasComponent },

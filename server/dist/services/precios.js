@@ -33,8 +33,8 @@ const getProducts = async () => {
 exports.getProducts = getProducts;
 const getProduct = async (id) => {
     const responseGetOne = await precios_1.default.findOne({ _id: id });
-    // console.log( ' responseGetOne : ', id)
-    // console.log( ' responseGetOne : ', responseGetOne)
+    console.log(' responseGetOne : ', id);
+    console.log(' responseGetOne : ', responseGetOne);
     return responseGetOne && responseGetOne.toObject();
 };
 exports.getProduct = getProduct;

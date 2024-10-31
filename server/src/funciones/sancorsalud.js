@@ -11,7 +11,7 @@ export	function  valor_SanCor(aportesOS,coeficiente,edad_1,edad_2,numHijos, prec
 	let preciosConyuge = precios_Conyuge;
 	let numhijo2 = numhijo_2;
 	let grupoFam = grupo_Fam;
-	// console.log(grupoFam)
+	console.log(grupoFam)
 
 	if(grupoFam == 1 ){
 		edad2 = 0;
@@ -24,11 +24,11 @@ export	function  valor_SanCor(aportesOS,coeficiente,edad_1,edad_2,numHijos, prec
 		hijos =0;
 	  }
 
-// console.log('preciosConyuge');
-// console.log(preciosConyuge);
+console.log('preciosConyuge');
+console.log(preciosConyuge);
 
-// console.log('hijos');
-// console.log(hijos);
+console.log('hijos');
+console.log(hijos);
 	  let precio_adultos_Sancor = {};
 	let precios = {};
 	         
@@ -73,14 +73,14 @@ let descOS = functions.calculodescOS(aportesOS[0],aportesOS[2],aportesOS[3],coef
 		} else {
 			precios = precio_adultos_Sancor;
 		}
-		// console.log('precios 58')
-        // console.log(precios)
+		console.log('precios 58')
+        console.log(precios)
 	//	<!-----------------------Bucle SANCOR start------------------------>							
 	              
 	       for (let j in precios) {
-			// console.log('imprimir j')
+			console.log('imprimir j')
 
-			// console.log(j)
+			console.log(j)
 
 			        let otrosBenPrecios = [{"col_1": 1, "col_2": 2758, "col_3": 2528, "col_4": 1620, "SSPRO": 275, "SSOD": 633, "SSAC": 145, "SUF": 85, "CS": 1620},{"col_1": 2, "col_2": 5512, "col_3": 5052, "col_4": 3240, "SSPRO": 545, "SSOD": 1267, "SSAC": 290, "SUF": 170, "CS": 3240},{"col_1": 3, "col_2": 7658, "col_3": 6961, "col_4": 4860, "SSPRO": 834, "SSOD": 1267, "SSAC": 442, "SUF": 255, "CS": 4860},{"col_1": 4, "col_2": 9785, "col_3": 8855, "col_4": 6480, "SSPRO": 1108, "SSOD": 1267, "SSAC": 590, "SUF": 340, "CS": 6480},{"col_1": 5, "col_2": 11923, "col_3": 10756, "col_4": 8100, "SSPRO": 1389, "SSOD": 1267, "SSAC": 742, "SUF": 425, "CS": 8100},{"col_1": 6, "col_2": 14041, "col_3": 12645, "col_4": 9720, "SSPRO": 1658, "SSOD": 1267, "SSAC": 886, "SUF": 510, "CS": 9720}]
 
@@ -91,8 +91,8 @@ let descOS = functions.calculodescOS(aportesOS[0],aportesOS[2],aportesOS[3],coef
 					let segVidaTotal = 	functions.segVidaPlus(segVidacheck,segVida2check,edad1,edad2,segVidaPrecio);
 					let conPromo = con_afinidad;
 					let empresaPlan = [j][0];
-					// console.log('empresaPlan ')
-					// console.log(empresaPlan)
+					console.log('empresaPlan ')
+					console.log(empresaPlan)
 
 					let _id = empresaPlan;
 
@@ -106,34 +106,34 @@ let descOS = functions.calculodescOS(aportesOS[0],aportesOS[2],aportesOS[3],coef
 					let promo = functions.promoDescuento(precios[j],promocion, conPromo)[2];
 					let descPromo = functions.promoDescuento(precios[j],promo, conPromo)[1];
 					let precioTotal = functions.promoDescuento(precios[j],promo, conPromo)[0];
-                     // console.log('precioTotal');// console.log(precioTotal)
+                     console.log('precioTotal');console.log(precioTotal)
 
 					let cuotaSocial = otrosBenPrecios[grupoFam - 1]['CS'];
 
-					// console.log('cuotaSocial');
-					// console.log(cuotaSocial)
-                    // console.log('otrosBen');
-					// console.log(otrosBen)
-					// console.log('segVidaTotal');
-					// console.log(segVidaTotal)
+					console.log('cuotaSocial');
+					console.log(cuotaSocial)
+                    console.log('otrosBen');
+					console.log(otrosBen)
+					console.log('segVidaTotal');
+					console.log(segVidaTotal)
 
 					let otrosCargos = parseInt(cuotaSocial) + parseInt(otrosBen) + parseInt(segVidaTotal);
-					// console.log('otrosCargos');
-					// console.log(otrosCargos)
+					console.log('otrosCargos');
+					console.log(otrosCargos)
 
 					
 					
 					
 					precioTotal = precioTotal + otrosCargos;
-					// console.log('precioTotal');// console.log(precioTotal)
-                    // console.log('descOS');// console.log(descOS)
-					// console.log('precioTotal');// console.log(precioTotal)
+					console.log('precioTotal');console.log(precioTotal)
+                    console.log('descOS');console.log(descOS)
+					console.log('precioTotal');console.log(precioTotal)
 
-					// console.log('aportesOS[0]');// console.log(aportesOS[0])
+					console.log('aportesOS[0]');console.log(aportesOS[0])
 
 					let precio = functions.final(aportesOS[0],descOS,precioTotal);
-					// console.log('precio ')
-					// console.log(precio)
+					console.log('precio ')
+					console.log(precio)
 					// if (aportesOS[0] === "I") {
 					// 	precio = parseInt(precioTotal) - parseInt(bonInscr);
 					// 	descOS = bonInscr;
@@ -156,8 +156,8 @@ let descOS = functions.calculodescOS(aportesOS[0],aportesOS[2],aportesOS[3],coef
 							array.push(plan);	
 						}
 			 //	<!-----------------------Bucle SANCOR end------------------------>											
-						// console.log( 'array SANCOR')							
-						// console.log(array)							
+						console.log( 'array SANCOR')							
+						console.log(array)							
 
 						return array
 					}

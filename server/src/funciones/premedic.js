@@ -65,8 +65,8 @@ let array = [];
                     
                     }
     //	<!-----------------------Bucle PREMEDIC end------------------------>								
-    // console.log( 'array PREMEDIC')	
-    // console.log(array)							
+    console.log( 'array PREMEDIC')	
+    console.log(array)							
                     
     return array
 }			

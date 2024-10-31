@@ -4,19 +4,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.suprasSalud = exports.planNombre = exports.segVidaPlus = exports.final = exports.promoDescuento = exports.calculodescOS = exports.agruparYTransformarPlanes = exports.combinePlansWithPrices = void 0;
 function combinePlansWithPrices(planes, precios) {
     const combinedArray = [];
-    // console.log(planes)
+    console.log(planes);
     planes.forEach((plan) => {
-        // console.log(plan)
+        console.log(plan);
         const matchingPrecio = precios.find((precio) => precio.item_id === plan.item_id);
-        //   console.log(plan.item_id);
-        //   console.log(precios.item_id);
+        console.log(plan.item_id);
+        console.log(precios.item_id);
         if (matchingPrecio) {
             // Combina todas las propiedades de planes y precios en un nuevo objeto
             const combinedPlan = {
                 ...plan._doc,
                 ...matchingPrecio,
             };
-            // console.log(combinedPlan)
+            console.log(combinedPlan);
             // Agrega el objeto combinado al array resultado
             combinedArray.push(combinedPlan);
         }

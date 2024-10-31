@@ -35,6 +35,7 @@ app.use(cors({
     allowedHeaders: ['Authorization', 'Content-Type']
 
   }));
+  
 app.use(express.json())
 app.use(router);
 app.use(bodyParser.json({ limit: '50mb' })); // Puedes ajustar el límite según tus necesidades

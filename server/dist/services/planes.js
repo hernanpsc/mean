@@ -25,7 +25,7 @@ async function addClinicas() {
             // Actualizar los documentos en MongoDB
             await planes_1.default.updateOne({ _id: products[i]._id }, { clinicas: clinicPlan });
         }
-        // console.log(products)
+        console.log(products);
         return products;
     }
     catch (error) {

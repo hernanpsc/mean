@@ -113,12 +113,12 @@ this.formCotizar.reset();
 }
 salvar(event: any){
   if(this.formPersonalData.valid){
-    // console.log('Formulario en metodo save');
+    console.log('Formulario en metodo save');
     // this.retornarService.setFormularioData(this.formCotizar.value)
 
-    // console.log(this.formCotizar.value);
+    console.log(this.formCotizar.value);
   } else {
-    // console.log('formulario invalido');
+    console.log('formulario invalido');
 
   };
 this.router.navigate(['/salud/results']);
@@ -134,7 +134,6 @@ private buildForm(){
    edad_2: [0],
    numkids: [0],
    plan_type:[''],
-   
    tipo: [''],
    agree: [true],
    aporteOS: [''],
@@ -150,6 +149,7 @@ private buildForm(){
     
    });
  }
+ 
 ngOnInit(): void
 
   {
@@ -167,7 +167,7 @@ ngOnInit(): void
   
 
   getNameValue() {
-    // console.log(this.nameField.value);
+    console.log(this.nameField.value);
   }
 
   // Declarar una propiedad en tu componente para almacenar el tipo de plan seleccionado
@@ -186,7 +186,7 @@ selectZonaType(type: string) {
     this.formCotizar.get('personalData').get('region').setValue("GBA Oeste");
   }
   const regionValue = this.formCotizar.get('personalData').get('region').value;
-  // console.log('Valor de region:', regionValue);
+  console.log('Valor de region:', regionValue);
   this.selectedVolverType='';
 }
 
@@ -200,10 +200,10 @@ selectPlanType(type: string) {
   // Actualiza el valor del campo "grupo" en el formulario
   this.selectedVolverType = '';
   this.formCotizar.get('group').setValue(this.selectedGrupoType);
-    // console.log("Adultos :" + this.selectedPlanType);
-    // console.log("Hijos :" + this.selectedHijosType);
-    // console.log("Grupo :" + this.selectedGrupoType);
-    // console.log("Volver :"  + this.selectedVolverType);
+    console.log("Adultos :" + this.selectedPlanType);
+    console.log("Hijos :" + this.selectedHijosType);
+    console.log("Grupo :" + this.selectedGrupoType);
+    console.log("Volver :"  + this.selectedVolverType);
 
   }
 
@@ -229,12 +229,12 @@ selectPlanType(type: string) {
     this.formCotizar.get('group').setValue(4);
   }}
   this.selectedVolverType = '';
-    // console.log("Adultos :" + this.selectedPlanType);
-    // console.log("Hijos :" + this.selectedHijosType);
-    // console.log("Grupo :" + this.selectedGrupoType);
-    // console.log("Volver :"  + this.selectedVolverType)
+    console.log("Adultos :" + this.selectedPlanType);
+    console.log("Hijos :" + this.selectedHijosType);
+    console.log("Grupo :" + this.selectedGrupoType);
+    console.log("Volver :"  + this.selectedVolverType)
     const groupValue = this.formCotizar.get('group').value;
-    // console.log('Valor de grupo:', groupValue);
+    console.log('Valor de grupo:', groupValue);
 
 
   }
@@ -254,7 +254,7 @@ selectPlanType(type: string) {
       this.formCotizar.get('sueldo').reset();
     }
  
-    // console.log("Volver :"  + this.selectedVolverType)
+    console.log("Volver :"  + this.selectedVolverType)
 
   }
   validateInput() {
@@ -282,7 +282,7 @@ selectPlanType(type: string) {
   actualizarSueldo(event: Event) {
     const valor = (event.target as HTMLInputElement).value;
     this.valorSueldo = parseInt(valor); // Otra opción es utilizar parseInt para obtener un número entero
-  // console.log(valor)
+  console.log(valor)
   }
 
   selectContactoType(type: string) {

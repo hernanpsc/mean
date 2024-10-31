@@ -13,26 +13,28 @@ import PlanesModel from './../models/planes';
 import EmpresaModel from './../models/empresas';
 export const  calcularPrecio = async (req: Request, res: Response) => {
  try{
-// console.log(req.body.grupo);
-// console.log(req.body.empresa_prepaga);
-// console.log(req.body.edad_1);
-// console.log(req.body.edad_2);    
-// console.log(req.body.numkids); 
-// console.log(req.body.plan_type);
-// console.log(req.body.tipo);
-// console.log(req.body.agree);
-// console.log(req.body.aporteOS);
-// console.log(req.body.sueldo);
-// console.log(req.body.aporte);
-// console.log(req.body.monoadic);
-// console.log(req.body.cantAport);
-// console.log(req.body.afinidad);
-// console.log(req.body.bonAfinidad);
-// console.log(req.body.supras);
-// console.log(req.body.segvida);
-// console.log(req.body.segvida1);
-// console.log(req.body.region);
-// console.log(req.body.coeficientes);
+  console.log("grupo"); console.log(req.body.grupo);
+
+console.log("grupo"); console.log(req.body.grupo);
+console.log("empresa_prepaga"); console.log(req.body.empresa_prepaga);
+console.log("edad_1"); console.log(req.body.edad_1);
+console.log("edad_2"); console.log(req.body.edad_2);    
+console.log("numkids"); console.log(req.body.numkids); 
+console.log("plan_type"); console.log(req.body.plan_type);
+console.log("tipo"); console.log(req.body.tipo);
+console.log("agree"); console.log(req.body.agree);
+console.log("aporteOS"); console.log(req.body.aporteOS);
+console.log("sueldo"); console.log(req.body.sueldo);
+console.log("aporte"); console.log(req.body.aporte);
+console.log("monoadic"); console.log(req.body.monoadic);
+console.log("cantAport"); console.log(req.body.cantAport);
+console.log("afinidad"); console.log(req.body.afinidad);
+console.log("bonAfinidad"); console.log(req.body.bonAfinidad);
+console.log("supras"); console.log(req.body.supras);
+console.log("segvida"); console.log(req.body.segvida);
+console.log("segvida1"); console.log(req.body.segvida1);
+console.log("region"); console.log(req.body.region);
+console.log("coeficientes"); console.log(req.body.coeficientes);
 
 // const group = req.body.grupo;
 
@@ -106,6 +108,7 @@ const {
   segvida1,
   region,
 } = formCotizar;
+
 
 const calcularGrupo = (edad_1: number, edad_2: number, numkids: number, group: string) => {
   let edad1 = edad_1;
@@ -181,7 +184,7 @@ let idPrevencion = functions.productIdPrevencion(edad_1,edad_1, numkids, tipo_In
     let schema = "precios";
 
 // async function fetchProductPrice(id: string) {
-//   console.log( ' funcion en linea 183 : id: ', id)
+// console.log( ' funcion en linea 183 : id: ', id)
 //  return await getProduct(id);
 // }
 
@@ -199,7 +202,7 @@ const coeficiente = empresasConCoeficientes.find(empresa => empresa[type]);
 if (coeficiente) {
 return coeficiente  
 } else {
-console.log(`No se encontró la empresa ${type}.`);
+// console.log(`No se encontró la empresa ${type}.`);
 }
 
 }
@@ -250,7 +253,7 @@ console.log(`No se encontró la empresa ${type}.`);
 // <! -----------------------------ID GALENO END---------------------------------------------------->
 
 // <! -----------------------------ID PREMEDIC START---------------------------------------------------->
-
+// console.log("edad_1" + edad_1); console.log("edad_2" + edad_2); console.log("tipo"+ tipo); console.log( "numHijos" + numHijos); console.log("group" + group)
 let priceAdultosPr  = await getProduct('premedic' + functions.productIdPremedic(edad_1, edad_2, tipo, numHijos,group));
    let pricePrHijoMenir1  = await getProduct('premedic' + tipo + 'AD-1anio');
    let pricePrHijoMenir25  = await getProduct('premedic' + tipo + 'AD-25');
@@ -268,16 +271,16 @@ let priceAdultosPr  = await getProduct('premedic' + functions.productIdPremedic(
    let precioConyuge  = await getProduct(idSancorConyuge);
    let priceGrupoGaleno  = await getProduct('galeno' + idGaleno);
    
-   console.log('priceAdultosPr  ', priceAdultosPr);
-   console.log('pricePrHijoMenir25  ', pricePrHijoMenir25);
-   console.log('pricePrHijoMenir1  ', pricePrHijoMenir1);
+   // console.log('priceAdultosPr  ', priceAdultosPr);
+   // console.log('pricePrHijoMenir25  ', pricePrHijoMenir25);
+   // console.log('pricePrHijoMenir1  ', pricePrHijoMenir1);
   //  priceAdultosPr =  priceAdultosPr.toObject();
   //  pricePrHijoMenir25 = pricePrHijoMenir25.toObjet();
   //  pricePrHijoMenir1 =  pricePrHijoMenir1.toObjet();
 
-   console.log('priceAdultosPr  ', priceAdultosPr.precios);
-   console.log('pricePrHijoMenir25  ', pricePrHijoMenir25.precios);
-   console.log('pricePrHijoMenir1  ', pricePrHijoMenir1.precios);
+   // console.log('priceAdultosPr  ', priceAdultosPr.precios);
+   // console.log('pricePrHijoMenir25  ', pricePrHijoMenir25.precios);
+   // console.log('pricePrHijoMenir1  ', pricePrHijoMenir1.precios);
 
 
 
@@ -294,9 +297,9 @@ let priceAdultosPr  = await getProduct('premedic' + functions.productIdPremedic(
       bonAfinidad,
       group
     )
-    console.log('valor_Premedic')
+    // console.log('valor_Premedic')
 
-console.log(valor_Premedic)
+// console.log(valor_Premedic)
 
 // <! -----------------------------ID PREMEDIC END---------------------------------------------------->
 
@@ -315,10 +318,10 @@ console.log(valor_Premedic)
 // precio2Hijo = precio2Hijo.toObject();
 // precioTitular = precioTitular.toObject();
 // precioConyuge = precioConyuge.toObject();
-console.log('precio1Hijo.precios:', precio1Hijo.precios);
-console.log('precio2Hijo.precios:', precio2Hijo.precios);
-console.log('precioTitular.precios:', precioTitular.precios);
-console.log('precioConyuge.precios:', precioConyuge.precios);
+// console.log('precio1Hijo.precios:', precio1Hijo.precios);
+// console.log('precio2Hijo.precios:', precio2Hijo.precios);
+// console.log('precioTitular.precios:', precioTitular.precios);
+// console.log('precioConyuge.precios:', precioConyuge.precios);
 
 
 
@@ -342,9 +345,9 @@ let valor_SanCor = functions.valor_SanCor(
   bonAfinidad, // dato del formulario 
   gen// respuesta funcion grupoFamiliars
   );
-  console.log('valor_SanCor')
+  // console.log('valor_SanCor')
 
-console.log(valor_SanCor)
+// console.log(valor_SanCor)
 // <! -----------------------------VALOR PRECIO SANCOR END---------------------------------------------------->
 
 // <! -----------------------------VALOR PRECIO OMINT START------------------------------------------------------>
@@ -354,10 +357,10 @@ console.log(valor_SanCor)
 // precio_hijo1_Omint = precio_hijo1_Omint.toObject();
 // precio_hijo2_Omint = precio_hijo2_Omint.toObject();
 
-console.log('precio_titular_Omint',precio_titular_Omint.precios);
-console.log('precio_conyuge_Omint',precio_conyuge_Omint.precios);
-console.log('precio_hijo1_Omint',precio_hijo1_Omint.precios);
-console.log('precio_hijo2_Omint',precio_hijo2_Omint.precios);
+// console.log('precio_titular_Omint',precio_titular_Omint.precios);
+// console.log('precio_conyuge_Omint',precio_conyuge_Omint.precios);
+// console.log('precio_hijo1_Omint',precio_hijo1_Omint.precios);
+// console.log('precio_hijo2_Omint',precio_hijo2_Omint.precios);
 
 let valor_OMINT = functions.valorOmint(
   aporte_OS,
@@ -373,9 +376,9 @@ let valor_OMINT = functions.valorOmint(
   bonAfinidad, // dato del formulario % de descuento
   buscar_mi_coeficiente('OMINT')
   );
-  console.log('valor_OMINT')
+  // console.log('valor_OMINT')
 
-  console.log(valor_OMINT)
+  // console.log(valor_OMINT)
 
 
 // <! -----------------------------VALOR PRECIO OMINT END---------------------------------------------------->
@@ -394,7 +397,6 @@ let valor_Galeno = functions.valor_Galeno(
     );
         console.log('valor_Galeno')
 
-    console.log(valor_Galeno)
 
 // <! -----------------------------VALOR PRECIO GALENO END----------------------------------prices------------------>
 // <! -----------------------------VALOR PRECIO GALENO START---------------------------------------------------->
@@ -403,10 +405,10 @@ let valor_Galeno = functions.valor_Galeno(
 // precioHijo1Swiss = precioHijo1Swiss.toObjet();
 // precioHijo2Swiss = precioHijo2Swiss.toObjet();
 
-console.log('precioTitularSwiss  ',precioTitularSwiss.precios);
-console.log('precioConyugeSwiss  ',precioConyugeSwiss.precios);
-console.log('precioHijo1Swiss  ',precioHijo1Swiss.precios);
-console.log('precioHijo2Swiss  ',precioHijo2Swiss.precios);
+// console.log('precioTitularSwiss  ',precioTitularSwiss.precios);
+// console.log('precioConyugeSwiss  ',precioConyugeSwiss.precios);
+// console.log('precioHijo1Swiss  ',precioHijo1Swiss.precios);
+// console.log('precioHijo2Swiss  ',precioHijo2Swiss.precios);
 
 let valor_Swiss = functions.valor_Swiss(
   aporte_OS,
@@ -423,7 +425,7 @@ let valor_Swiss = functions.valor_Swiss(
   )
 console.log('valor_Swiss')
 
-console.log(valor_Swiss)
+// console.log(valor_Swiss)
 
 // for ( let i=0 ; i < prices.length ; i++){
 // console.log(prices[i])
@@ -488,7 +490,7 @@ console.log(valor_Swiss)
 
 
 const planesSwiss = combinedPlans.filter((plan: { empresa: string; }) => plan.empresa === 'Swiss Medical');
-console.log(planesSwiss)
+// console.log(planesSwiss)
 
 
   const filteredPlansGaleno = combinedPlans.filter((plan: { precio: number; }) => plan.precio > 0);    
@@ -540,7 +542,7 @@ const resultadoFinal = otrasEmpresasPlanes.concat(planesOmintAgrupados);
 
 
     
-console.log(resultado)
+// console.log(resultado)
 
  res.status(200).json(resultado)
       } catch(e) {

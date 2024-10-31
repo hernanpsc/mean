@@ -4,6 +4,12 @@ exports.getPrecios = void 0;
 const cotizacion_1 = require("../services/cotizacion");
 const error_handle_1 = require("../utils/error.handle");
 const getPrecios = async (fromCotizar, res) => {
+    const body = fromCotizar.body;
+    // console.log("body :")
+    //  console.log(body)
+    Object.keys(body).forEach(key => {
+        console.log(key + ": ", body[key]);
+    });
     try {
         const response = await (0, cotizacion_1.calcularPrecio)(fromCotizar, res);
         res.send(response);

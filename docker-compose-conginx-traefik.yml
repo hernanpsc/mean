@@ -1,0 +1,82 @@
+version: "3.7"
+services:
+
+## --------------------------- mongo --------------------------- ##
+
+  database:
+    image: "mongo"
+
+## --------------------------- api --------------------------- ##
+
+  express_app:
+    build: ./server
+    volumes:
+      - server_data:/data
+    networks:
+      - mired
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1024M
+      labels:
+      - traefik.enable=true
+      - traefik.http.routers.servicio.rule=Host(`cotizador.tuchat.com.ar`)
+      - traefik.http.routers.servicio.entrypoints=websecure
+      - traefik.http.routers.servicio.tls.certresolver=letsencryptresolver
+      - traefik.http.services.servicio.loadbalancer.server.port=5200
+      - traefik.http.routers.servicio.priority=1
+      - traefik.http.services.servicio.loadbalancer.passHostHeader=true
+      - traefik.http.routers.servicio.service=servicio
+      
+
+## --------------------------- front-end-angular --------------------------- ##
+
+  angular_app:
+    build: ./front-prepagas
+    ports:
+      - 4300:80
+    volumes:
+      - front_data:/data
+
+    networks:
+      - mired
+ 
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager       
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1024M
+
+      labels:
+      - traefik.enable=true
+      - traefik.http.routers.front.rule=Host(`front.tuchat.com.ar`)
+      - traefik.http.routers.front.entrypoints=websecure
+      - traefik.http.routers.front.tls.certresolver=letsencryptresolver
+      - traefik.http.services.front.loadbalancer.server.port=4200
+      - traefik.http.routers.front.priority=1
+      - traefik.http.services.front.loadbalancer.passHostHeader=true
+      - traefik.http.routers.front.service=front
+
+volumes:
+  server_data:
+    external: true
+    name: server_data
+  front_data:
+    external: true
+    name: front_data
+
+networks:
+  mired:
+    external: true
+    name: mired
