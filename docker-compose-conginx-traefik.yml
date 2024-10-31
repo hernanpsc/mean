@@ -9,7 +9,7 @@ services:
 ## --------------------------- api --------------------------- ##
 
   express_app:
-    build: ./server
+    image: .imagen/server
     volumes:
       - server_data:/data
     networks:
@@ -38,7 +38,7 @@ services:
 ## --------------------------- front-end-angular --------------------------- ##
 
   angular_app:
-    build: ./front-prepagas
+    image: ./front-prepagas
     ports:
       - 4300:80
     volumes:
