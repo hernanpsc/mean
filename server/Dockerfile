@@ -1,16 +1,16 @@
-FROM node:20.9.0-alpine
+# FROM node:20.9.0-alpine
 
-WORKDIR /usr/meanserver
+# WORKDIR /usr/meanserver
 
-COPY package.json /usr/meanserver
+# COPY package.json /usr/meanserver
 
-RUN npm install
+# RUN npm install
 
-COPY ./ ./
+# COPY ./ ./
 
-EXPOSE 5000
+# EXPOSE 5000
 
-CMD ["npm","start"]
+# CMD ["npm","start"]
 
 
 # FROM node:18-slim
@@ -28,3 +28,21 @@ CMD ["npm","start"]
 
 # # Run the web service on container startup.
 # CMD ["pm2-runtime", "dist/server.js"]
+
+FROM node:20.9.0-alpine
+
+WORKDIR /usr/meanserver
+
+COPY package.json package-lock.json ./
+RUN npm install --production
+
+# Instala pm2 globalmente
+RUN npm install -g pm2
+
+COPY . .
+
+# Expone el puerto
+EXPOSE 5000
+
+# Inicia la aplicación usando pm2
+CMD ["pm2-runtime", "dist/app.js"]
