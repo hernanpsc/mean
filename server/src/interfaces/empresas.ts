@@ -4,7 +4,7 @@ import * as mongodb from "mongodb";
 
 export interface Empresa {
 _id?: mongodb.ObjectId;
-item_id?:string,
+item_id?:number,
 name?: string;
 planes?:[],
 lineas?:[],
@@ -20,4 +20,5 @@ factores?:Coeficientes;
 export interface Coeficientes{
 coeficiente?:number;
 factorAporte?:number;
+
 }

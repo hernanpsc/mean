@@ -8,7 +8,7 @@ const empresaSchema = new Schema<Empresa>(
         required:true
     },
     item_id: {
-        type: String,
+        type: Number,
         required:true
     },    
     images: {
@@ -20,9 +20,6 @@ const empresaSchema = new Schema<Empresa>(
     },
     lineas: {
         type: [String]
-    },
-    factores: {
-      coeficiente: Number
     }
 })
 

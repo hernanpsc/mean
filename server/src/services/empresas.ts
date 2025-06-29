@@ -9,6 +9,8 @@ async function obtenerEmpresasDisponibles() {
   }
   const createProduct = async (item: any) => {
     const responseCreate = await EmpresaModel.create(item)
+        console.log("data" , item)
+
     return responseCreate;
 };
 
@@ -28,6 +30,8 @@ const getProduct = async (id: string) => {
 };
 
 const updateProduct = async (id: string, data: any) => {
+    console.log("data" , data)
+
     const responseUpdate = await EmpresaModel.findOneAndUpdate({_id:id},data,{new: true})
     return responseUpdate
 };
