@@ -2,28 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const empresaSchema = new mongoose_1.Schema({
-   name: {
+    name: {
         type: String,
-        required:true
-    },
-    item_id: {
-        type: Number,
-        required:true
-    },    
-    images: {
-        type: [String],
-    },
-    sigla: {
-        type: String,
-        required:true
-    },
-    lineas: {
-        type: [String]
-    },
-    factores: {
-      coeficiente: Number,
-      mono: [Number],
-      monotributo: {}
+        required: true
     }
 });
 const EmpresaModel = (0, mongoose_1.model)('empresas', empresaSchema);
