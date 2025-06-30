@@ -5,23 +5,6 @@ const empresaSchema = new mongoose_1.Schema({
     name: {
         type: String,
         required: true
-    },
-    item_id: {
-        type: String,
-        required: true
-    },
-    images: {
-        type: [String],
-    },
-    sigla: {
-        type: String,
-        required: true
-    },
-    lineas: {
-        type: [String]
-    },
-    factores: {
-        coeficiente: Number
     }
 });
 const EmpresaModel = (0, mongoose_1.model)('empresas', empresaSchema);

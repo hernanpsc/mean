@@ -5,9 +5,6 @@ import { handleHttp } from "../utils/error.handle";
 import * as mongodb from "mongodb";
 import {  createProduct, getProducts, getProduct, updateProduct, deleteProduct, searchProducts ,getPlanes } from "../services/empresas";
 
-
-
-
 const  getItems = async (req: Request, res: Response) => {
   try {
     const  response = await getProducts();

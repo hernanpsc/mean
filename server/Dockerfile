@@ -42,7 +42,7 @@ RUN npm install -g pm2
 COPY . .
 
 # Expone el puerto
-EXPOSE 5000
+EXPOSE 5200
 
 # Inicia la aplicación usando pm2
 CMD ["pm2-runtime", "dist/app.js"]

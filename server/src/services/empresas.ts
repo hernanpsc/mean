@@ -9,7 +9,6 @@ async function obtenerEmpresasDisponibles() {
   }
   const createProduct = async (item: any) => {
     const responseCreate = await EmpresaModel.create(item)
-        console.log("data" , item)
 
     return responseCreate;
 };

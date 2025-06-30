@@ -29,6 +29,7 @@ const getProduct = async (id) => {
 };
 exports.getProduct = getProduct;
 const updateProduct = async (id, data) => {
+    console.log("data", data);
     const responseUpdate = await empresas_1.default.findOneAndUpdate({ _id: id }, data, { new: true });
     return responseUpdate;
 };

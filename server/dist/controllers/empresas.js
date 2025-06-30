@@ -25,13 +25,13 @@ const getItemById = async ({ params }, res) => {
     }
 };
 exports.getItemById = getItemById;
-const createItem = async (req, res) => {
+const createItem = async ({ body }, res) => {
     try {
-        const responseItem = await (0, empresas_1.createProduct)(req);
+        const responseItem = await (0, empresas_1.createProduct)(body);
         res.send(responseItem);
     }
     catch (e) {
-        (0, error_handle_1.handleHttp)(res, 'ERROR_CREATE_CLINICA');
+        (0, error_handle_1.handleHttp)(res, 'ERROR_CREATE_EMPRESA');
     }
 };
 exports.createItem = createItem;
