@@ -6,7 +6,7 @@ import { router } from "./routes"
 import dbConnect from "./config/mongo";
 
 
-import bodyParser from 'body-parser';
+import bodyParser from "body-parser";
 
 const PORT = process.env.PORT || 3001;
 

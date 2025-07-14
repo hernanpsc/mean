@@ -28,6 +28,8 @@ exports.getItemById = getItemById;
 const createItem = async ({ body }, res) => {
     try {
         const responseItem = await (0, empresas_1.createProduct)(body);
+        console.log('body :', body);
+        console.log('responseItem :', responseItem);
         res.send(responseItem);
     }
     catch (e) {

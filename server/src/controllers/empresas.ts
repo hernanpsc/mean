@@ -28,6 +28,8 @@ const  getItemById = async ({ params }:Request,res:Response) => {
 const  createItem = async ({ body }: Request, res: Response) => {
   try {
     const responseItem = await createProduct(body);
+    console.log('body :', body);
+    console.log('responseItem :', responseItem);
         res.send(responseItem);
 
   } catch (e) {

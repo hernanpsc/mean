@@ -1,6 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.productIdPrevencion = exports.productIdMedife = exports.productIdSwiss = exports.productIdOmint = exports.productIdPremedic = exports.productIdGaleno = exports.productID = exports.tipoAsociado = exports.grupoFamiliar = void 0;
+exports.grupoFamiliar = grupoFamiliar;
+exports.tipoAsociado = tipoAsociado;
+exports.productID = productID;
+exports.productIdGaleno = productIdGaleno;
+exports.productIdPremedic = productIdPremedic;
+exports.productIdOmint = productIdOmint;
+exports.productIdSwiss = productIdSwiss;
+exports.productIdMedife = productIdMedife;
+exports.productIdPrevencion = productIdPrevencion;
 function grupoFamiliar(age0, age1, kids, group) {
     let edad0 = age0;
     let edad1 = age1;
@@ -63,7 +71,6 @@ function grupoFamiliar(age0, age1, kids, group) {
     console.log(grupoFam);
     return [num_adultos, numhijo1, numhijo2, numhijos, gen, grupoFam];
 }
-exports.grupoFamiliar = grupoFamiliar;
 function tipoAsociado(_tipo) {
     let tipoAsoc = '';
     let tipo = _tipo;
@@ -76,7 +83,6 @@ function tipoAsociado(_tipo) {
     ;
     return tipoAsoc;
 }
-exports.tipoAsociado = tipoAsociado;
 // <!----------------------Funcion PRODUCT ID SANCOR start---------------------------->     
 function productID(_edad, tipoAsoc, gen, miembro, numHijos, group) {
     let edadId = '';
@@ -144,7 +150,6 @@ function productID(_edad, tipoAsoc, gen, miembro, numHijos, group) {
     ;
     return [edadID1, edadID2, hijoId, hijo2Id];
 }
-exports.productID = productID;
 ;
 // <!----------------------Funcion PRODUCT ID SANCOR end---------------------------->   
 // <!----------------------Funcion PRODUCT ID GALENO start---------------------------->        
@@ -191,7 +196,6 @@ function productIdGaleno(anios_1, anios_2, tipoAsoc, num_Hijos, group) {
     ;
     return edadIdGaleno;
 }
-exports.productIdGaleno = productIdGaleno;
 ;
 // // <!----------------------Funcion PRODUCT ID GALENO end---------------------------->
 // // <!----------------------Funcion PRODUCT ID PREMEDIC start----------------------------> 
@@ -252,7 +256,6 @@ function productIdPremedic(edad_1, edad_2, tipoAsoc, num_Hijos, group) {
     }
     return edadIdPremedic;
 }
-exports.productIdPremedic = productIdPremedic;
 // <!----------------------Funcion PRODUCT ID PREMEDIC END---------------------------->    
 // <!----------------------Funcion PRODUCT ID OMINT start---------------------------->        
 function productIdOmint(anios, tipoAsoc, miembro, group) {
@@ -296,7 +299,6 @@ function productIdOmint(anios, tipoAsoc, miembro, group) {
     console.log("edadID1OMINT=" + edadID1OMINT + "; edadID2OMINT =" + edadID2OMINT + "; hijoIdOMINT =" + hijoIdOMINT + "; hijo2IdOMINT =" + hijo2IdOMINT);
     return [edadID1OMINT, edadID2OMINT, hijoIdOMINT, hijo2IdOMINT];
 }
-exports.productIdOmint = productIdOmint;
 ;
 // <!----------------------Funcion PRODUCT ID OMINT end---------------------------->
 // <!----------------------Funcion PRODUCT ID SWISS start---------------------------->        
@@ -340,7 +342,6 @@ function productIdSwiss(anios, tipoAsoc, group) {
     }
     return edadID;
 }
-exports.productIdSwiss = productIdSwiss;
 // <!----------------------Funcion PRODUCT ID END start----------------------------> 
 // <!----------------------Funcion PRODUCT ID MEDIFE start----------------------------> 
 function productIdMedife(edad_1, edad_2, tipoAsoc, group) {
@@ -410,7 +411,6 @@ function productIdMedife(edad_1, edad_2, tipoAsoc, group) {
     }
     return edadIdMedife;
 }
-exports.productIdMedife = productIdMedife;
 // <!----------------------Funcion PRODUCT ID MEDIFE end----------------------------> 
 // <!----------------------Funcion PRODUCT ID PREVENCION SALUD start----------------------------> 
 function productIdPrevencion(edad_1, edad_2, hijos, tipoAsoc) {
@@ -464,6 +464,5 @@ function productIdPrevencion(edad_1, edad_2, hijos, tipoAsoc) {
     }
     return edadIdPrevencion;
 }
-exports.productIdPrevencion = productIdPrevencion;
 // <!----------------------Funcion PRODUCT ID PREVENCION SALUD end----------------------------> 
 //# sourceMappingURL=ids.js.map

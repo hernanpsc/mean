@@ -11,8 +11,7 @@ async function obtenerRegionesDisponibles() {
   const regiones = await ClinicasModel.distinct('ubicacion.region');
   return regiones;
 }
-
-async function organizarClinicasPorRegiones() {
+const organizarClinicasPorRegiones = async () => {
   regiones = await obtenerRegionesDisponibles();
   
   // Inicializa un objeto para cada región
@@ -35,18 +34,6 @@ async function organizarClinicasPorRegiones() {
 // Llama a la función para organizar las clínicas por regiones
 organizarClinicasPorRegiones();
 
-const createProduct = async (item: any) => {
-  const responseCreate = await ClinicasModel.create(item)
-  return responseCreate;
-};
-
-const getProducts = async () => {
-  console.log('hola getProducts clinicas')
-  const responseGet = await ClinicasModel.find({});
-  console.log('hola getProducts clinicas responseGet',responseGet )
-
-  return responseGet
-};
 
 const getProductsIA = async () => {
   const responseGet = await ClinicasModel.find({}, {
@@ -61,38 +48,7 @@ const getProductsIA = async () => {
   });
   return responseGet
 };
-const getProduct = async (id: string) => {
- 
-  
-  const responseGetOne = await ClinicasModel.findOne({_id:id})
-  
-  return responseGetOne
-};
 
-const updateProduct = async (id: string, data: any) => {
-  const responseUpdate = await ClinicasModel.findOneAndUpdate({_id:id},data,{new: true})
-  return responseUpdate
-};
-
-const deleteProduct = async (id: string) => {
-  const responsedelete = await ClinicasModel.deleteOne({_id:id})
-  return responsedelete
-};
-
-const searchProducts = async (query: string) => {
-  // Realiza la búsqueda en la base de datos, por ejemplo, por nombre
-  const responseSearch = await ClinicasModel.find({
-      concept: { $regex: query, $options: 'i' } as { $regex: string, $options: string },
-  })
-  return responseSearch
-};
-
-const getPlanes = async () => {
-
-  const responseGet = await obtenerPlanesConClinicas();
-
-  return responseGet
-}; 
 
 const getPlanesIA = async () => {
 
@@ -114,4 +70,4 @@ const getPlanesIA = async () => {
 };
 
 }; 
-export { createProduct, getProducts, getProduct, updateProduct, deleteProduct, searchProducts ,getPlanes, getProductsIA, getPlanesIA};
+export { getProductsIA, getPlanesIA, organizarClinicasPorRegiones};

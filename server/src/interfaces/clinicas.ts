@@ -10,6 +10,9 @@ export interface Clinicas {
   coberturas:[string];
   item_id:string;
   ubicacion:Ubicacion;
+  region:string;
+  barrio:string;
+  provincia:string;
   url:string;
   imagen:Imagen;
   tipo:string;

@@ -36,16 +36,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express_1 = require("express");
 const express = __importStar(require("express"));
-const clinicas_1 = require("../controllers/clinicas");
+const chat_1 = require("../controllers/chat");
 const router = (0, express_1.Router)();
 exports.router = router;
 router.use(express.json());
-router.get('/', (req, res) => { (0, clinicas_1.getItems)(req, res); });
-router.get('/:id', (req, res) => { (0, clinicas_1.getItemById)(req, res); });
-router.post('/', (req, res) => { (0, clinicas_1.createItem)(req, res); });
-router.put('/:id', (req, res) => { (0, clinicas_1.updateItem)(req, res); });
-router.delete('/:id', (req, res) => { (0, clinicas_1.deleteItem)(req, res); });
-router.get('/search', (req, res) => {
-    (0, clinicas_1.searchItem)(req, res);
-});
-//# sourceMappingURL=clinicas.js.map
+router.get('/clinicas', (req, res) => { (0, chat_1.getItemsIA)(req, res); });
+router.get('/planes', (req, res) => { (0, chat_1.getItemsPlanesIA)(req, res); });
+router.get('/clxregion', (req, res) => { (0, chat_1.getClinicasPorRegionesIA)(req, res); });
+//# sourceMappingURL=chat.js.map

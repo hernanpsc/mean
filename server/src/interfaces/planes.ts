@@ -1,4 +1,4 @@
-import { Imagen as MiImagen } from './interfaces';
+import { Clinicas } from './clinicas';
 import * as mongodb from "mongodb";
 
 
@@ -27,7 +27,7 @@ export interface Planes {
     imagenes?: string[] | undefined;
     folletos?:string[];
     beneficios?:string[];
-    clinicas?:string[];
+    clinicas?:Clinicas[];
     _id?: mongodb.ObjectId;
     item_id?: string;
     empresa?: string;
